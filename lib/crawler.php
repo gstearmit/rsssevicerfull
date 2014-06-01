@@ -73,6 +73,8 @@ public static	function delete_site($id){
 		header('Location:declaration_site.php');
 	}
 public static function feed_data($cmd){
+	
+	// insert_database
 		if($cmd=='insert_database'){
 			$dir = 'cache/temp_data.cache.php';
 			if(file_exists($dir)){

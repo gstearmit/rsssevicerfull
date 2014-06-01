@@ -24,7 +24,7 @@ $total_page=ceil($total/$item_per_page);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Danh sách tức đã lấy</title>
-<meta name="generator" content="minhtc.net" />
+<meta name="generator" content="" />
 <link href="css/style.css" rel="stylesheet" />
 </head>
 <body>

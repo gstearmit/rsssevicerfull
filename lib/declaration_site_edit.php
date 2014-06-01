@@ -68,7 +68,8 @@ Feed::save_site($cmd,$id);
             </tr>
            <tr>
                 <td><label>Bắt đầu và kết thúc vùng cần lấy</label></td>
-                <td><input name="begin" type="text" id="begin" style="width:35%;" value='<?php echo isset($site['begin'])?str_replace('"','&quot;',$site['begin']):'';?>'  /> ==> 
+                <td>
+                     <input name="begin" type="text" id="begin" style="width:35%;" value='<?php echo isset($site['begin'])?str_replace('"','&quot;',$site['begin']):'';?>'  /> ==> 
                      <input name="end" type="text" id="end" style="width:35%;" value='<?php echo isset($site['end'])?str_replace('"','&quot;',$site['end']):'';?>'  />
                  </td>
            </tr>

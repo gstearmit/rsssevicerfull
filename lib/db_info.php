@@ -2,5 +2,5 @@
 	$sqlserver="localhost";
 	$sqluser="root";
 	$sqlpassword="";
-	$dbname="crawler";
+	$dbname="testcrawler";
 ?>
