@@ -13,6 +13,7 @@ class DB
 				@mysql_close(DB::$db_connect_id);
 				DB::$db_connect_id = $dbselect;
 			}else{
+				//mysql_query("SET NAMES 'utf8'");
 				$table_db=mysql_query('select 1 from news');
 				if($table_db===false){
 					die('Error: Database is not install');
@@ -58,6 +59,7 @@ class DB
 	static function query($query)
 	{
 		// Clear old query result
+
 		DB::$db_result=false;
 		if (!empty($query))
 		{
@@ -123,6 +125,7 @@ class DB
 	static function delete($table, $condition)
 	{
 		$query='delete from `'.$table.'` where '.$condition;
+		
 		if(DB::query($query))
 		{		
 			return true;
@@ -132,7 +135,8 @@ class DB
 	{
 		if($sql)
 		{
-			DB::query($sql);
+			mysql_query("SET NAMES 'utf8'");
+			DB::query(mysql_query($sql));
 		}
 		$query_id = DB::$db_result;
 		if ($query_id)
@@ -156,6 +160,8 @@ class DB
 	{
 		if($sql)
 		{
+			//mysql_query("SET NAMES 'utf8'");
+			//DB::query(mysql_query($sql));
 			DB::query($sql);
 		}
 		$query_id = DB::$db_result;
@@ -179,7 +185,8 @@ class DB
 	{
 		if (DB::$db_connect_id)
 		{
-			$result = mysql_insert_id(DB::$db_connect_id);
+			mysql_query("SET NAMES 'utf8'");
+			$result = mysql_insert_id(mysql_query(DB::$db_connect_id));
 			return $result;
 		}
 		else
@@ -227,9 +234,9 @@ class DB
 if(file_exists('lib/db_info.php')){
 	require_once 'lib/db_info.php';
 }
-$sqlserver=(isset($sqlserver) and $sqlserver)?$sqlserver:'';
-$sqluser=(isset($sqluser) and $sqluser)?$sqluser:'';
-$sqlpassword=(isset($sqlpassword) and $sqlpassword)?$sqlpassword:'';
-$dbname=(isset($dbname) and $dbname)?$dbname:'';
+$sqlserver = (isset($sqlserver) and $sqlserver) ? $sqlserver:'';
+$sqluser   =  (isset($sqluser) and $sqluser) ? $sqluser:'';
+$sqlpassword = (isset($sqlpassword) and $sqlpassword) ? $sqlpassword:'';
+$dbname = (isset($dbname) and $dbname) ? $dbname:'';
 $db = new DB($sqlserver, $sqluser, $sqlpassword, $dbname);
 ?>
