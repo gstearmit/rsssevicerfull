@@ -135,8 +135,9 @@ class DB
 	{
 		if($sql)
 		{
-			mysql_query("SET NAMES 'utf8'");
-			DB::query(mysql_query($sql));
+			//mysql_query("SET NAMES 'utf8'");
+			//DB::query(mysql_query($sql));
+			DB::query($sql);
 		}
 		$query_id = DB::$db_result;
 		if ($query_id)
