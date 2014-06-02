@@ -1,7 +1,7 @@
 <?php
 
 require 'lib/database.php';
-// $catalogy = DB::fetch('select * from category ');
+// $catalogy = DB::fetch('select * from catalogue ');
 
 // echo '<pre>';
 // print_r($catalogy);

@@ -1,8 +1,14 @@
 <?php
-$category=DB::fetch_all('select * from category');
+$category=DB::fetch_all('select * from catalogue');
+
 $id=(isset($_REQUEST['id']) and $_REQUEST['id'])?$_REQUEST['id']:0;
 if($cmd=='edit'){
 	$site=DB::fetch('select * from site where id='.$id);
+// 	echo "phuc";
+// 	echo "<pre>";
+// 	print_r($site);
+// 	echo "</pre";
+// 	//die;
 }
 if(isset($_REQUEST['action']) and $_REQUEST['action']=='save')
 Feed::save_site($cmd,$id);
@@ -48,8 +54,9 @@ Feed::save_site($cmd,$id);
                 <td><select name="category_id" id="category_id" style="width:20%;">
 				<?php
 				if($category)
+				
 				foreach($category as $key=>$value){
-					echo '<option value="'.$key.'"'.((isset($site['category_id']) and $site['category_id']==$key)?' selected':'').'>'.$value['name'].'</option>';
+					echo '<option value="'.$key.'"'.((isset($site['category_id']) and $site['category_id']==$key)?' selected':'').'>'.$value['title'].'</option>';
 				}
 				?>
                 </select></td>

@@ -143,10 +143,10 @@ public static function get_template()
 			SELECT
 				site.*,
 				site.name as site_name,
-				category.name as category_title
+				catalogue.title as category_title
 			FROM
 				site
-				LEFT OUTER JOIN category ON site.category_id=category.id
+				LEFT OUTER JOIN catalogue ON site.category_id = catalogue.id
 			ORDER BY
 				site.name
 			
